@@ -5,7 +5,9 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "apollo-server": "^3.13.0",
     "axios": "^1.6.0",
+    "graphql": "^16.9.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

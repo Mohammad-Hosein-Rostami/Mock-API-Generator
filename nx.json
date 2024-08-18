@@ -33,7 +33,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/Mock-e2e/**/*"]
+      "exclude": [
+        "apps/Mock-e2e/**/*",
+        "GraphQl Mock API Generator-e2e/**/*",
+        "apps/graph-ql-e2e/**/*"
+      ]
     }
   ]
 }

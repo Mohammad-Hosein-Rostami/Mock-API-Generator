@@ -1,7 +1,7 @@
 {
-  "name": "Mock",
+  "name": "graph-ql",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/Mock/src",
+  "sourceRoot": "apps/graph-ql/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -11,12 +11,18 @@
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
-        "outputPath": "dist/apps/Mock",
+        "outputPath": "dist/apps/graph-ql",
         "format": ["cjs"],
         "bundle": false,
-        "main": "apps/Mock/src/main.ts",
-        "tsConfig": "apps/Mock/tsconfig.app.json",
-        "assets": ["apps/Mock/src/assets"],
+        "main": "apps/graph-ql/src/main.ts",
+        "tsConfig": "apps/graph-ql/tsconfig.app.json",
+        "assets": [
+          {
+            "input": "apps/graph-ql/src/assets",
+            "glob": "**/*",
+            "output": "apps/graph-ql/src/assets"
+          }
+        ],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -28,7 +34,6 @@
       "configurations": {
         "development": {},
         "production": {
-          "generateLockfile": true,
           "esbuildOptions": {
             "sourcemap": false,
             "outExtension": {
@@ -43,21 +48,17 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "Mock:build",
+        "buildTarget": "graph-ql:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "Mock:build:development"
+          "buildTarget": "graph-ql:build:development"
         },
         "production": {
-          "buildTarget": "Mock:build:production"
+          "buildTarget": "graph-ql:build:production"
         }
       }
-    },
-    "docker-build": {
-      "dependsOn": ["build"],
-      "command": "docker build -f apps/Mock/Dockerfile . -t Mock"
     }
   }
 }
